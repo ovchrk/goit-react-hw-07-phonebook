@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import css from '../Form/Form.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 
 const Form = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const contacts = useSelector(state => state.contacts.contact);
+  const contacts = useSelector(selectContacts);
 
   const dispatch = useDispatch();
 

@@ -2,14 +2,11 @@ import React from 'react';
 import css from '../List/List.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/operations';
+import { selectFilteredContacts } from 'redux/selectors';
 
 export const List = () => {
-  const contacts = useSelector(state => state.contacts.contact);
-  const filter = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter)
-  );
+  const filteredContacts = useSelector(selectFilteredContacts);
 
   return (
     <div>
